@@ -1,0 +1,229 @@
+
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTU Computer Science - Level 200 Directory</title>
+    <style>
+        :root {
+            --primary-brown: #5d4037;
+            --light-brown: #8d6e63;
+            --bg-beige: #f5f5dc;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --accent: #ff9800;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-beige); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #3e2723; }
+
+        header { max-width: 1000px; margin: 40px auto 20px; background: var(--white); padding: 40px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); }
+        .logo { width: 140px; height: auto; margin-bottom: 20px; }
+
+        .history { text-align: left; border-top: 2px solid #eee; margin-top: 25px; padding-top: 20px; line-height: 1.7; color: #555; }
+        .history h3 { color: var(--primary-brown); margin-bottom: 10px; }
+
+        .stats-bar { max-width: 1200px; margin: 0 auto 20px; display: flex; justify-content: center; gap: 20px; }
+        .stat-card { background: var(--primary-brown); color: white; padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: bold; }
+
+        .search-container { position: sticky; top: 20px; z-index: 100; max-width: 600px; margin: 0 auto 40px; padding: 0 20px; }
+        #studentSearch { width: 100%; padding: 15px 25px; font-size: 1rem; border: 2px solid var(--white); border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); outline: none; transition: 0.3s; }
+        #studentSearch:focus { border-color: var(--light-brown); }
+
+        .student-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .student-card { background: var(--white); padding: 20px; border-radius: 15px; display: flex; align-items: center; gap: 20px; box-shadow: var(--shadow); transition: 0.3s; border: 1px solid rgba(215, 204, 200, 0.4); }
+        .student-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        .avatar { width: 60px; height: 60px; border-radius: 50%; background: #d7ccc8; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; font-size: 1.2rem; }
+        .info { text-align: left; }
+        .name { display: block; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--primary-brown); margin-bottom: 4px; }
+        .index { color: var(--light-brown); font-size: 0.8rem; font-family: 'Courier New', monospace; font-weight: bold; }
+
+        .review-section { max-width: 700px; margin: 60px auto; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); }
+        .review-form input, .review-form select, .review-form textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn { width: 100%; padding: 15px; background: var(--primary-brown); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 1rem; }
+        .comments-display { margin-top: 30px; }
+        .comment-item { background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid var(--primary-brown); position: relative; }
+        .delete-btn { position: absolute; top: 10px; right: 10px; color: #ff5252; cursor: pointer; font-size: 0.8rem; border: none; background: none; }
+
+        #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--primary-brown); color: white; border: none; border-radius: 50%; cursor: pointer; display: none; z-index: 1000; font-size: 20px; }
+        footer { text-align: center; color: var(--light-brown); padding: 40px; font-size: 0.9rem; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="image/cctu.jfif" width="300" height="300">
+    <h1>CAPE  COAST  TECHNICAL  UNIVERSITY</h1>
+<h1>Department of Computer Science</h2>
+    <div class="history">
+        <h3>Academic Journey</h3>
+        <p>The history of Cape Coast Technical University (CCTU) began in 1984 as a Second Cycle Technical Institute. By 1992, it transitioned into Cape Coast Polytechnic under PNDC Law 321. A major milestone was reached in 2016 when it was converted into a full Technical University (Act 922).</p>
+        <p>The <strong>Computer Science</strong> course was developed to meet the growing technological demands of Ghana. It emphasizes Competency-Based Training (CBT), focusing on hardware, software engineering, and artificial intelligence, ensuring Level 200 students are ready for industrial innovation.</p>
+    </div>
+</header>
+
+<div class="stats-bar">
+    <div class="stat-card">Total Students: <span id="studentCount">0</span></div>
+    <div class="stat-card">Course: Diploma In Computer Science</div>
+</div>
+
+<div class="search-container">
+    <input type="text" id="studentSearch" placeholder="Search by name or index number..." onkeyup="filterStudents()">
+</div>
+
+<div class="student-container" id="studentGrid">
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">AMOAKO KUMI STANLEY</span><span class="index">0224DCS0015</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">INKOOM SOLOMON</span><span class="index">0224DCS0002</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">AGGREY BOSSMAN MILORD</span><span class="index">0224DCS0012</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">NAAGMENSONG GYAMFI PAUL</span><span class="index">0224DCS0021</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">YEBOAH KWADJO BISMARK SAMUEL</span><span class="index">0224DCS0014</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">BOSU ADDISON FRANCIS</span><span class="index">0224DCS0017</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">YIRENKYI SAMUEL</span><span class="index">0224DCS0007</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">AMOAH PRINCE</span><span class="index">0224DCS0004</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ΑΚΡΑΒΙΟ FELIX GODSWILL</span><span class="index">0224DCS0013</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ANANI DELALI RICHMOND</span><span class="index">0224DCS0009</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">OTOO JUNIOR JOSEPΗ</span><span class="index">0224DCS0025</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">BUABENG IBRAHIM</span><span class="index">0224DCS0036</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">APPIAH AKYEN REGINAID</span><span class="index">0224DCS0026</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ABAAMI WEMONIAMO EMMANUEL</span><span class="index">0224DCS0006</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ALEX OBOH NYAME</span><span class="index">0224DCS0043</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">SAM ABIGAIL</span><span class="index">0224DCS0011</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ACHEAMPONG ERNEST</span><span class="index">0224DCS0010</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">MICHAEL DARKO ANNOM</span><span class="index">0224DCS0001</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">AGYEMANG OSEI NANA</span><span class="index">0224DCS0029</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ENOCH MENSAH</span><span class="index">0224DCS0028</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ALEX QUANSAH</span><span class="index">0224DCS0005</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ASARE FELIX</span><span class="index">0224DCS0024</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">PROSPER OFORI MANTEAW</span><span class="index">0224DCS0020</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">RANSFORD EGYIR</span><span class="index">0224DCS0018</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">DANIEL OSEI JUNIOR</span><span class="index">0224DCS0032</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">JOEL ABBAN</span><span class="index">0224DCS0019</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">RICHARD ARKORFUL</span><span class="index">0224DCS0033</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">COLLINS OPOKU YEBОАН</span><span class="index">0224DCS0022</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">EMMANUEL ARTHUR</span><span class="index">0224DCS0035</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">SETH TENADU</span><span class="index">0224DCS0038</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">GREGORY FIIFI SOWAH</span><span class="index">0224DCS0027</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">EMMANUEL CLINTON</span><span class="index">0224DCS0041</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">EMMANUEL BANS</span><span class="index">0224DCS0034</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">ASAMOAH AMPONSAH GERTRUDE</span><span class="index">0224DCS0044</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">GODSWAY EGLI</span><span class="index">0224DCS0037</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">SOLOMON BROWN QUAYE</span><span class="index">0224DCS0023</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">IBRAHIM MOHAMMED</span><span class="index">0224DCS0042</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">EMMANUEL ATWERI OPARE</span><span class="index">0224DCS0045</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">CALEB FIANKO BEKOE</span><span class="index">0224DCS0046</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">CHRISTIAN YARTEY</span><span class="index">0224DCS0049</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">OSBORNE AMPONSAH VAN</span><span class="index">0224DCS0047</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">RUTH NYARKO BOAKYE</span><span class="index">0224DCS0040</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">OLIVER AMOAH KOBBIE</span><span class="index">0224DCS0048</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">MICHAEL MENSAH</span><span class="index">0224DCS0050</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">EMMANUELLA MORGAN</span><span class="index">0224DCS0003</span></div></div>
+    <div class="student-card"><div class="avatar"><img src="image/c.jfif" width="40" height"40"></div><div class="info"><span class="name">SETH AFFRISAH</span><span class="index">0224DCS0039</span></div></div>
+</div>
+
+<div class="review-section">
+    <h2>Student Reviews & Comments</h2>
+    <div class="review-form">
+        <input type="text" id="revName" placeholder="Full Name">
+        <select id="revRating">
+            <option value="⭐⭐⭐⭐⭐">5 Stars - Excellent</option>
+            <option value="⭐⭐⭐⭐">4 Stars - Very Good</option>
+            <option value="⭐⭐⭐">3 Stars - Average</option>
+        </select>
+        <textarea id="revText" rows="4" placeholder="Write your feedback about the course or student experience..."></textarea>
+        <button class="btn" onclick="addReview()">Post Review</button>
+    </div>
+    <div class="comments-display" id="commentsList"></div>
+</div>
+
+<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+<footer>
+    &copy; 2026 Cape Coast Technical University | Computer Science Department | Designed by Buabeng Ibrahim (0224DCS0051)
+</footer>
+
+<script>
+    // 1. Initial Setup
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCount();
+        loadReviews();
+    });
+
+    // 2. Search Functionality
+    function filterStudents() {
+        const query = document.getElementById('studentSearch').value.toLowerCase();
+        const cards = document.getElementsByClassName('student-card');
+        let visibleCount = 0;
+
+        for (let i = 0; i < cards.length; i++) {
+            const name = cards[i].querySelector('.name').textContent.toLowerCase();
+            const index = cards[i].querySelector('.index').textContent.toLowerCase();
+            
+            if (name.includes(query) || index.includes(query)) {
+                cards[i].classList.remove('hidden');
+                visibleCount++;
+            } else {
+                cards[i].classList.add('hidden');
+            }
+        }
+        document.getElementById('studentCount').innerText = visibleCount;
+    }
+
+    function updateCount() {
+        const count = document.getElementsByClassName('student-card').length;
+        document.getElementById('studentCount').innerText = count;
+    }
+
+    // 3. Review System with LocalStorage
+    function addReview() {
+        const name = document.getElementById('revName').value;
+        const rating = document.getElementById('revRating').value;
+        const text = document.getElementById('revText').value;
+
+        if (!name || !text) { alert("Please enter both name and comment."); return; }
+
+        const review = { id: Date.now(), name, rating, text, date: new Date().toLocaleDateString() };
+        let reviews = JSON.parse(localStorage.getItem('cctu_cs_reviews') || '[]');
+        reviews.push(review);
+        localStorage.setItem('cctu_cs_reviews', JSON.stringify(reviews));
+
+        document.getElementById('revName').value = '';
+        document.getElementById('revText').value = '';
+        loadReviews();
+    }
+
+    function loadReviews() {
+        const list = document.getElementById('commentsList');
+        const reviews = JSON.parse(localStorage.getItem('cctu_cs_reviews') || '[]');
+        list.innerHTML = reviews.length === 0 ? '<p style="color:#999">No reviews yet.</p>' : '';
+
+        reviews.reverse().forEach(rev => {
+            const div = document.createElement('div');
+            div.className = 'comment-item';
+            div.innerHTML = `
+                <button class="delete-btn" onclick="deleteReview(${rev.id})">Delete</button>
+                <strong>${rev.name}</strong> <span style="color:orange; margin-left:10px;">${rev.rating}</span><br>
+                <p style="margin:10px 0; color:#444;">${rev.text}</p>
+                <small style="color:#bbb;">${rev.date}</small>
+            `;
+            list.appendChild(div);
+        });
+    }
+
+    function deleteReview(id) {
+        let reviews = JSON.parse(localStorage.getItem('cctu_cs_reviews') || '[]');
+        reviews = reviews.filter(r => r.id !== id);
+        localStorage.setItem('cctu_cs_reviews', JSON.stringify(reviews));
+        loadReviews();
+    }
+
+    // 4. Back to Top Button
+    window.onscroll = () => {
+        document.getElementById('backToTop').style.display = (window.scrollY > 300) ? "block" : "none";
+    };
+</script>
+
+</body>
+</html>
